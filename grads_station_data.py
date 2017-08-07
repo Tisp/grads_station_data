@@ -54,7 +54,12 @@ def write_station_data(infile, outfile, latc, lonc, stidc=None):
                 
                 """ write data """
                 for data in line_data:
-                    of.write(struct.pack('f', float(data)))
+                    try:
+                        d = float(data)
+                    except ValueError:
+                        print "Warning: {0} is not a float value".format(data)
+                        continue
+                    of.write(struct.pack('f', d))
 
         hdr.nlev = 0
         of.write(hdr)
@@ -71,18 +76,18 @@ def main():
     parser.add_argument('--outfile', '-o', action="store", required=True,
     help="Output file")
 
-    parser.add_argument('--latc', action="store",  default=1, type=int,
+    parser.add_argument('--latc', action="store",  default=0, type=int,
     help="Latitude column number [starts on 0]")
 
-    parser.add_argument('--lonc', action="store",  default=2, type=int,
+    parser.add_argument('--lonc', action="store",  default=1, type=int,
     help="Longitude column number [starts on 0]")
 
     parser.add_argument('--stidc', action="store", type=int,
     help="Station id column number [starts on 0]")
 
     args = parser.parse_args()
-    parser.print_help()
-    write_station_data(args.i, args.o, args.latc, args.lonc, args.stidc)
+    write_station_data(args.infile, args.outfile, args.latc, args.lonc,\
+    args.stidc)
 
 if __name__ == '__main__':
     main()

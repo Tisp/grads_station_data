@@ -19,7 +19,7 @@ optional arguments:
 
 ## Exemple:
 
-Station data file:
+### Station data file:
 ```
 Stid    Lat    Lon    Rainfall
 QQQ    34.3  -85.5    123.3 
@@ -37,7 +37,7 @@ TTT    33.4  -82.5     45.5
 ```
 python grads_station_data.py \
  -i station.txt \ #input file
- -o staion.dat \ #output file
- --latc=1 \ #number of lat column
- --lonc=2 \ #number of lon colunm
- --stidc=0 #number of station id colunm
+ -o staion.dat \  #output file
+ --latc=1 \       #number of lat column
+ --lonc=2 \       #number of lon colunm
+ --stidc=0        #number of station id colunm
