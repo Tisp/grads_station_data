@@ -3,7 +3,7 @@
 This is a python script to generate binary station data for GrADS (Grid Analysis and Display System).
 This script is based in C source code described in [documentation](http://cola.gmu.edu/grads/gadoc/aboutstationdata.html#station) of GrADS
 
-```shell
+```
 Station data creator for GrADS
 
 optional arguments:
@@ -34,10 +34,11 @@ TTT    33.4  -82.5     45.5
 
 ### Generating a binary station data:
 
-```
+```shell
 python grads_station_data.py \
  -i station.txt \ #input file
  -o staion.dat \  #output file
  --latc=1 \       #number of lat column
  --lonc=2 \       #number of lon colunm
  --stidc=0        #number of station id colunm
+ ```
